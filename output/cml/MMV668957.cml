@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<molecule id="MMV668957" xmlns="http://www.xml-cml.org/schema">
+ <atomArray>
+  <atom id="a1" elementType="C" x2="1.874900" y2="-3.795100"/>
+  <atom id="a2" elementType="N" x2="2.869500" y2="-3.690500"/>
+  <atom id="a3" elementType="C" x2="3.276200" y2="-2.777000"/>
+  <atom id="a4" elementType="C" x2="2.688400" y2="-1.968000"/>
+  <atom id="a5" elementType="N" x2="1.693900" y2="-2.072500"/>
+  <atom id="a6" elementType="C" x2="1.287200" y2="-2.986100"/>
+  <atom id="a7" elementType="N" x2="0.292600" y2="-3.090600"/>
+  <atom id="a8" elementType="C" x2="-0.207400" y2="-3.956600"/>
+  <atom id="a9" elementType="C" x2="-1.185500" y2="-3.748700"/>
+  <atom id="a10" elementType="C" x2="-1.290000" y2="-2.754200"/>
+  <atom id="a11" elementType="C" x2="-0.376500" y2="-2.347400"/>
+  <atom id="a12" elementType="C" x2="-2.156100" y2="-2.254200"/>
+  <atom id="a13" elementType="C" x2="-3.022100" y2="-2.754200"/>
+  <atom id="a14" elementType="C" x2="-3.888100" y2="-2.254200"/>
+  <atom id="a15" elementType="C" x2="-3.888100" y2="-1.254200"/>
+  <atom id="a16" elementType="C" x2="-3.022100" y2="-0.754200"/>
+  <atom id="a17" elementType="C" x2="-2.156100" y2="-1.254200"/>
+  <atom id="a18" elementType="C" x2="1.287200" y2="-1.159000"/>
+  <atom id="a19" elementType="N" x2="2.030300" y2="-0.489800"/>
+  <atom id="a20" elementType="N" x2="2.896300" y2="-0.989800"/>
+  <atom id="a21" elementType="C" x2="0.309000" y2="-0.951100"/>
+  <atom id="a22" elementType="C" x2="-0.360100" y2="-1.694200"/>
+  <atom id="a23" elementType="C" x2="-1.338300" y2="-1.486300"/>
+  <atom id="a24" elementType="C" x2="-1.647300" y2="-0.535200"/>
+  <atom id="a25" elementType="C" x2="-0.978100" y2="0.207900"/>
+  <atom id="a26" elementType="C" x2="0.000000" y2="0.000000"/>
+  <atom id="a27" elementType="O" x2="-2.625400" y2="-0.327300"/>
+  <atom id="a28" elementType="C" x2="-2.934400" y2="0.623700"/>
+  <atom id="a29" elementType="F" x2="-2.265300" y2="1.366900"/>
+  <atom id="a30" elementType="F" x2="-3.912600" y2="0.831600"/>
+ </atomArray>
+ <bondArray>
+  <bond atomRefs2="a1 a6" order="2"/>
+  <bond atomRefs2="a1 a2" order="1"/>
+  <bond atomRefs2="a2 a3" order="2"/>
+  <bond atomRefs2="a3 a4" order="1"/>
+  <bond atomRefs2="a4 a20" order="2"/>
+  <bond atomRefs2="a4 a5" order="1"/>
+  <bond atomRefs2="a5 a6" order="1"/>
+  <bond atomRefs2="a5 a18" order="1"/>
+  <bond atomRefs2="a6 a7" order="1"/>
+  <bond atomRefs2="a7 a11" order="1"/>
+  <bond atomRefs2="a7 a8" order="1"/>
+  <bond atomRefs2="a8 a9" order="1"/>
+  <bond atomRefs2="a9 a10" order="1"/>
+  <bond atomRefs2="a10 a11" order="1"/>
+  <bond atomRefs2="a10 a12" order="1"/>
+  <bond atomRefs2="a12 a17" order="1"/>
+  <bond atomRefs2="a12 a13" order="2"/>
+  <bond atomRefs2="a13 a14" order="1"/>
+  <bond atomRefs2="a14 a15" order="2"/>
+  <bond atomRefs2="a15 a16" order="1"/>
+  <bond atomRefs2="a16 a17" order="2"/>
+  <bond atomRefs2="a18 a19" order="2"/>
+  <bond atomRefs2="a18 a21" order="1"/>
+  <bond atomRefs2="a19 a20" order="1"/>
+  <bond atomRefs2="a21 a26" order="1"/>
+  <bond atomRefs2="a21 a22" order="2"/>
+  <bond atomRefs2="a22 a23" order="1"/>
+  <bond atomRefs2="a23 a24" order="2"/>
+  <bond atomRefs2="a24 a25" order="1"/>
+  <bond atomRefs2="a24 a27" order="1"/>
+  <bond atomRefs2="a25 a26" order="2"/>
+  <bond atomRefs2="a27 a28" order="1"/>
+  <bond atomRefs2="a28 a29" order="1"/>
+  <bond atomRefs2="a28 a30" order="1"/>
+ </bondArray>
+ <propertyList>
+  <property title="MW">
+   <scalar>407.42</scalar>
+  </property>
+  <property title="EC50">
+   <scalar>2</scalar>
+  </property>
+ </propertyList>
+</molecule>
