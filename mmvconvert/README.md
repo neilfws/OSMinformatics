@@ -7,6 +7,8 @@ The SDF files can then be converted to CML using Open Babel as follows:
     find output/sdf -name "*.sdf" -exec babel -xp {} output/cml/{}.cml \;
     rename 's/\.sdf\.cml/\.cml/' output/cml/*
 
+Output is in *output/sdf* and *output/cml*.
+
 Expect these improvements in the near-future:
 
 * Rewrite R code as functions to make it more generic
