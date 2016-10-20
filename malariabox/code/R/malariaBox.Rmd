@@ -1,0 +1,71 @@
+---
+title: "A brief summary of the Malaria Box spreadsheet"
+author: "Neil Saunders"
+date: "14/10/2016"
+output:
+  prettydoc::html_pretty:
+    theme: tactile
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(RCurl)
+library(gdata)
+library(knitr)
+# setwd("~/Dropbox/projects/malaria/")
+```
+
+## Introduction
+This document is (so far) just a quick look at the Medicines for Malaria Venture spreadsheets downloaded via [the MMV website](http://www.mmv.org/research-development/malaria-box-supporting-information). 
+
+## Compounds by source
+First, we download the spreadsheets containing 1. the full public dataset and 2. the set of 400 compounds in the malaria box.
+
+```{r get-data, cache=TRUE, tidy=TRUE}
+mmvpublic <- "http://www.mmv.org/sites/default/files/uploads/docs/RandD/Dataset.xlsx"
+mb400     <- "http://www.mmv.org/sites/default/files/uploads/docs/RandD/MalariaBox400compoundsDec2014.xls"
+
+mmv <- read.xls(mmvpublic, stringsAsFactors = FALSE)
+mbox400 <- read.xls(mb400, stringsAsFactors = FALSE)
+```
+
+The _sources_ column in the malaria box is confusing, in that entries may be labelled with multiple sources, semi-colon delimited. Sometimes even the same source several times _e.g._ "GNF;GNF;GNF". This piece of code replaces sources with unique sources _e.g._ "GNF;GNF;GSK" becomes "GNF;GSK".
+
+```{r get-sources, cache=TRUE, tidy=TRUE}
+mbox400$s <- sapply(sapply(strsplit(mbox400$source, ";"), function(x) unique(x)), function(y) paste(y, collapse = ";"))
+```
+
+Now we can plot the full public dataset by source. Shows that GSK dominates, followed by GNF.
+
+```{r mmv-public, echo=FALSE, tidy=TRUE}
+ggplot(mmv) + geom_bar(aes(x = Source), fill = "skyblue3") + labs(title = "MMV Public Dataset Compounds By Source", y = "compounds") + theme_bw()
+```
+
+Followed by the malaria box dataset. Again GSK and GNF are predominant, although now GNF comes top.
+
+```{r mmv-mbox, echo=FALSE, tidy=TRUE}
+ggplot(mbox400) + geom_bar(aes(x = s), fill = "skyblue3") + labs(title = "MMV Malaria Box Compounds By Source", y = "compounds", x = "unique source") + theme_bw() + coord_flip()
+```
+
+## Activity
+Violin plots show distribution of activity. Looking first at the full public dataset we see two peaks at low concentrations for GSK and GNF compounds. By contrast, activity of St. Jude compounds is spread across a wider range with more compounds at higher concentrations.
+
+```{r mmv-public-activity, echo=FALSE, tidy=TRUE}
+ggplot(mmv, aes(Source, Activity..EC50.uM.)) + geom_violin(fill = "skyblue3") + theme_bw() + labs(y = "activity EC50 uM", title = "MMV Public Dataset Activity Distribution By Source")
+```
+
+Turning to the malaria box, we see two broad types of distribution. In the first, EC50 is spread over a wide range with broad peaks at higher and lower concentrations. In the second, concentration has a narrower range and is often centered around 1000 nM (see especially the commercial libraries).
+
+```{r mmv-mbox-activity, echo=FALSE, tidy=TRUE, warning=FALSE}
+ggplot(mbox400, aes(s, as.numeric(EC50_nM))) + geom_violin(fill = "skyblue3") + theme_bw() + labs(x = "unique source", y = "activity EC50 nM", title = "MMV Malaria Box Activity Distribution By Source") + coord_flip()
+```
+
+## Other numerical data
+Here's a preview of other numerical data in the malaria box spreadsheet which could be analysed. Note: wide table, scroll right to view.
+
+```{r show-head}
+names(mbox400)
+kable(head(mbox400[, c(1,6:8,11,13:17)]))
+```
