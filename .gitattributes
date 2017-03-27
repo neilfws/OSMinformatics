@@ -1,0 +1,2 @@
+*.Rmd linguist-language=R
+malariabox/code/R/*.html linguist-documentation
